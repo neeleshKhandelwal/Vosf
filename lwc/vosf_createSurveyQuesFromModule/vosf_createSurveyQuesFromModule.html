@@ -1,0 +1,76 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+        class="slds-modal slds-fade-in-open slds-modal_medium">
+        <div class="slds-modal__container">
+            <lightning-icon class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                icon-name="utility:close" onclick={navigateToModules} alternative-text="Indicates close">
+            </lightning-icon>
+
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+                    Create Survey with Questions
+                </h1>
+            </div>
+
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <template if:true={showError}>
+                    <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                        <h2>{errorMsg}</h2>
+                    </div>
+                </template>
+                <template if:true={showmodalContent}>
+                    <lightning-record-edit-form object-api-name="Vosf_Survey__c"
+                        onsuccess={handleCreateSurveyQuestions} onsubmit={handleSubmit}>
+                        <div class="slds-box">
+                            <template for:each={fields} for:item="field">
+                                <lightning-input-field field-name={field} key={field} onchange={handleChange}> </lightning-input-field>
+                            </template>
+                        </div>
+                        <br>
+                        <div class="slds-box">
+                            <template for:each={moduleWiseQuestions} for:item="module">
+                                <lightning-accordion allow-multiple-sections-open key={module.label}>
+                                    <lightning-accordion-section name={module.label} label={module.label}>
+                                        <template for:each={module.items} for:item="submodule" if:true={module.items}>
+                                            <lightning-accordion allow-multiple-sections-open key={submodule.label}>
+                                                <lightning-accordion-section name={submodule.label}
+                                                    label={submodule.label}>
+                                                    <template for:each={submodule.items} for:item="question"
+                                                        if:true={submodule.items}>
+                                                        <lightning-input type="checkbox" id={question.recordId}
+                                                            checked=true label={question.label} name={question.label}
+                                                            key={question.Id}>
+                                                        </lightning-input>
+                                                    </template>
+                                                </lightning-accordion-section>
+                                            </lightning-accordion>
+                                        </template>
+                                    </lightning-accordion-section>
+                                </lightning-accordion>
+                            </template>
+
+                            <template if:true={showError}>
+                                <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                                    <h2>{errorMsg}</h2>
+                                </div>
+                            </template>
+                        </div>
+                        <br>
+                        <div class="slds-modal__footer">
+                            <lightning-button
+                                class="slds-m-top_small"
+                                label="Cancel"
+                                onclick={navigateToModules}
+                            ></lightning-button>
+                            <lightning-button
+                                class="slds-m-top_small slds-m-left_small"
+                                type="submit" disabled={showError}
+                                label="Save" variant="brand"
+                            ></lightning-button>
+                        </div>
+                    </lightning-record-edit-form>
+                </template>
+            </div>
+        </div>
+    </section>
+</template>

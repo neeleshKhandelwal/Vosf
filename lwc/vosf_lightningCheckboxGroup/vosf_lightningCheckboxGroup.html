@@ -1,0 +1,28 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-07-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <div class="slds-m-bottom_small" style={questionStyle}>
+      {indexNumber}{questionData.Question.Question_Label__c}
+  </div>
+  <div class="slds-m-around_medium">
+    <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+  </div>
+  <div class="slds-m-around_medium">
+    <lightning-checkbox-group
+      name="Checkbox Group"
+      label={label}
+      options={options}
+      value={value}
+      required={questionData.Question.isRequired__c}
+      variant="label-hidden"
+      disabled={isDisabled}
+      onchange={handleChange}
+    >
+    </lightning-checkbox-group>
+  </div>
+</template>

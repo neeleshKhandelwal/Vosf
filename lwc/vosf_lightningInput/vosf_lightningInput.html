@@ -1,0 +1,31 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-08-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <div class="slds-m-bottom_small" style={questionStyle}>
+      {indexNumber}{questionData.Question.Question_Label__c}
+  </div>
+  <div class="slds-m-around_medium">
+    <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+    
+  </div>
+  <div class="slds-m-around_medium">
+    <template if:true={haschoices}>
+      <lightning-layout>
+      <lightning-layout-item size='4' small-device-size='12' medium-device-size='6' large-device-size='4' padding='around-small'>      
+      <lightning-input data-id={questionData.Question.Id} data-index={thirdIndex} variant="label-hidden"
+        type={questionData.Question.Question_Type__c} value={value} required="true" disabled={isDisabled}
+        min={min} message-when-range-underflow={maxRangeErrorMessage}
+        max={max} message-when-range-overflow={minRangeErrorMessage}
+        onblur={handleChange}>
+      </lightning-input></lightning-layout-item><lightning-layout-item size='4'  > <div style="
+        padding-top: 16px;">{choiceLabel}</div></lightning-layout-item>
+    
+  </lightning-layout>
+    </template>
+  </div>
+</template>

@@ -1,0 +1,29 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-12-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <div class="contentDiv">
+     <template if:true={showEndPage}>
+      <image src={VoSF_Completed_Img}  class="ImgCmpltd"></image>
+      <div class="submitText">
+        Your Survey has been submitted successfully!
+      </div>
+   </template>
+    <template if:true={reviewPage}>
+  <div class="msgContent">
+    <div class="headerTextDiv">Thank you for filling in the survey!</div>
+    <div class="btnDiv">
+      <button class="saveBtn" onclick={saveHandler}>Save &amp; Submit</button>
+      <button class="reviewBtn" onclick={reviewHandler}>
+        Review Responses
+      </button>
+    </div>
+    
+  </div>
+  </template>
+  </div>
+</template>

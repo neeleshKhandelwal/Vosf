@@ -1,0 +1,27 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-07-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-m-bottom_small" style={questionStyle}>
+        {indexNumber}{questionData.Question.Question_Label__c}
+    </div>
+    <div class="slds-m-around_medium">
+        <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+    </div>
+    <div class="slds-m-around_medium">
+        <lightning-textarea 
+            variant="label-hidden"
+            required = {questionData.Question.isRequired__c}
+            value={value} 
+            placeholder="" 
+            maxlength="1000"
+            onblur={handleOnBlur}
+            disabled={isDisabled}>
+            message-when-too-long="A maximum of 1000 characters are allowed.">
+        </lightning-textarea>
+    </div>
+</template>

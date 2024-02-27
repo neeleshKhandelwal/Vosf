@@ -1,0 +1,40 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-13-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <!-- <lightning-card> -->
+    
+    <div class="container">
+        <template if:true={showSpinner}>
+            <lightning-spinner style="position: fixed" alternative-text="Loading" size="large"></lightning-spinner>
+        </template>
+        <div class="contentDiv">
+            <div class="qheaderImg">
+                <image src={VoSF_ZS_Logo} height="120px" width="120px"></image>
+            </div>
+            <template if:true={surveyInvitation}>
+                <template if:true={showStartPage}>
+                   <c-vosf_welcome-message welcome-message={welcomeMessage} onnext={handleNext}></c-vosf_welcome-message>
+                </template>
+                <template if:true={questionPage}>
+                    <c-vosf_questions survey-invitation-id = {surveyInvitationId} 
+                    onshowthankspage={showThanksPage} last-answered-ques={lastAnsweredQues}></c-vosf_questions>
+                </template>
+                <template if:true={showReview}>
+                    <c-vosf_survey-review question-list={questionList}
+                    show-end-page={showEndPage} survey-invitation-id = {surveyInvitationId} onupdateresponses={updateResponses}></c-vosf_survey-review>
+                </template>
+            </template>
+            <template if:false={surveyInvitation}>
+                <div class="slds-theme_default slds-m-around_medium" style="margin: auto 5%;padding: 3% 4%;">
+                    <p style="font-size: 24px;"><strong>{errorMessage}</strong></p>
+                </div>
+            </template>          
+        </div>
+    </div>
+    <!-- </lightning-card> -->
+</template>

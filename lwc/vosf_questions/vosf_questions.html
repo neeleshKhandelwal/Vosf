@@ -1,0 +1,100 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-05-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner style="position: fixed" alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <div>
+        <div class="headerDiv progressDiv">
+            <c-vosf_lightning-progress-bar current-page={currentPage} total-page={totalPage}
+                record-id={surveyInvitationId}></c-vosf_lightning-progress-bar>
+        </div>
+        <div class="contentDiv">
+            <lightning-layout multiple-rows style="background: #fff">
+                <template if:true={currentScreenQuestionList}>
+                    <template if:true={modules}>
+                        <lightning-layout-item size="12">
+                            <div class="progressbar-wrapper">
+                                <ul class="progressbar">
+                                    <template for:each={modules} for:item="item">
+                                        <li key={item.value} class={item.class}>{item.value}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </lightning-layout-item>
+                    </template>
+                    <template for:each={currentScreenQuestionList} for:item="ques" for:index="index1">
+                        <lightning-layout-item size="12" key={ques.Question.Id}>
+                            <div class="questionDiv">
+                                <template lwc:if={ques.IsTable}>
+                                    <c-vosf_tabular question-wrapper={ques} survey-invitation-id={surveyInvitationId} onresponses={handleSaveResponses} ondeleteresponses={handleDeleteResponses}
+                                        if:false={ques.IsHidden} first-index={pageNumber} oneventcolumn={handleEventColumn}>
+                                    </c-vosf_tabular>
+                                    <template if:true={showCustomError}>
+                                        <div class="slds-m-left_x-large slds-text-color_error" key={ques.Question.Id}>
+                                            {showCustomErrorMsg}
+                                        </div>
+                                    </template>
+                                </template>
+                                <template lwc:else>
+                                    <div key={ques.Question.Id}>
+                                        <c-vosf_non-tabular-question question-wrapper={ques} if:false={ques.IsHidden}
+                                            onresponses={handleSaveResponses} is-primary="true"
+                                            first-index={pageNumber}>
+                                        </c-vosf_non-tabular-question>
+                                        <template for:each={ques.ChildQuestions} for:item="childques" for:index="index2"
+                                            if:false={ques.IsHidden}>
+                                            <div key={childques.Question.Id}
+                                                class="slds-m-top_medium slds-p-left_large">
+                                                <c-vosf_non-tabular-question question-wrapper={childques}
+                                                    if:false={childques.IsHidden} onresponses={handleSaveResponses}
+                                                    first-index={pageNumber} second-index={index2}>
+                                                </c-vosf_non-tabular-question>
+                                                <template for:each={childques.ChildQuestions} for:item="grandchildques"
+                                                    for:index="index3">
+                                                    <div key={grandchildques.Question.Id}
+                                                        class="slds-m-top_medium slds-p-left_large">
+                                                        <c-vosf_non-tabular-question question-wrapper={grandchildques}
+                                                            if:false={grandchildques.IsHidden}
+                                                            onresponses={handleSaveResponses} first-index={pageNumber}
+                                                            second-index={index2} third-index={index3}>
+                                                        </c-vosf_non-tabular-question>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </div>
+                                    <template if:true={showError}>
+                                        <div class="slds-m-left_x-large slds-text-color_error" key={ques.Question.Id}>
+                                            {errorMsg}
+                                        </div>
+                                    </template>
+                                </template>
+                            </div>
+                        </lightning-layout-item>
+                    </template>
+                </template>
+            </lightning-layout>
+        </div>
+        <div class="footerDiv">
+            <template if:true={showButton}>
+                <template if:true={showBackButton}>
+                    <!-- <label for="Back">Go Back</label> -->
+                    <button id="Back" label="Go Back" class="qbuttonPrev" onclick={handlePrevious}>
+                        Previous
+                    </button>
+                </template>
+                &nbsp;&nbsp;
+                <!-- <label for="Next">Next</label> -->
+                <button class="slds-float_right qbutton" label="Next" id="Next" onclick={handleNext}>
+                    Next
+                </button>
+            </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <description>This is a record triggered flow on Survey object</description>
+    <environments>Default</environments>
+    <interviewLabel>Vosf Survey Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Vosf Survey Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Set it to default text</description>
+        <name>Update_Welcome_Page_Content</name>
+        <label>Update Welcome Page Content</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <inputAssignments>
+            <field>Welcome_Page_Content__c</field>
+            <value>
+                <elementReference>WelcomePageContent</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Welcome_Page_Content</targetReference>
+        </connector>
+        <object>Vosf_Survey__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>WelcomePageContent</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;This is a Sales Force survey aimed at users of varying experience levels to understand their expertise, preferences, satisfaction etc.﻿&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;The following areas will be covered in the survey -&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Experience with Sales Force, Sales opportunities managed, hours and effort spent across different categories of activities.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Account plans, engagement with customer and prospect accounts, preferred medium of communication with clients.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Preferred sales type, Account type - Full or Light.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 18px; color: rgb(0, 0, 0);&quot;&gt;Overall satisfaction with your role at the company.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(134, 130, 130); font-size: 18px;&quot;&gt;Estimated Time:20 Mins&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

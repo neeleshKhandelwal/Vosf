@@ -1,0 +1,82 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-13-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <template if:true={showSpinner}>
+    <lightning-spinner style="position: fixed" alternative-text="Loading" size="large"></lightning-spinner>
+  </template>
+
+  <div>
+    <template if:true={thanksPage}>
+      <c-vosf_thanks-message onsave={handleSubmit} show-end-page={showEndPage} onreview={handleShowReview}>
+      </c-vosf_thanks-message>
+    </template>
+
+    <template if:true={reviewPage}>
+      <div class="headerDiv">Sales Force Survey</div>
+      <div class="contentDiv">
+        <lightning-layout multiple-rows style="background: #fff">
+          <template if:true={questionList}>
+            <template for:each={questionList} for:item="ques" for:index="index1">
+              <lightning-layout-item size="12" key={ques.Question.Id}>
+                <div class="questionDiv" if:false={ques.IsHidden}>
+                  <template lwc:if={ques.IsTable}>
+                    <c-vosf_tabular is-disabled={isDisabled} question-wrapper={ques} onresponses={handleSaveResponses}
+                      first-index={ques.number}>
+                    </c-vosf_tabular>
+                  </template>
+                  <template lwc:else>
+                    <div key={ques.Question.Id}>
+                      <c-vosf_non-tabular-question question-wrapper={ques} is-disabled={isDisabled}
+                        onresponses={handleSaveResponses} is-primary="true" first-index={ques.number}>
+                      </c-vosf_non-tabular-question>
+                      <template for:each={ques.ChildQuestions} for:item="childques" for:index="index2">
+                        <div key={childques.Question.Id} class="slds-m-top_medium slds-p-left_large">
+                          <c-vosf_non-tabular-question question-wrapper={childques} is-disabled={isDisabled}
+                            if:false={childques.IsHidden} onresponses={handleSaveResponses} first-index={ques.number}
+                            second-index={index2}>
+                          </c-vosf_non-tabular-question>
+                          <template for:each={childques.ChildQuestions} for:item="grandchildques" for:index="index3">
+                            <div key={grandchildques.Question.Id} class="slds-m-top_medium slds-p-left_large">
+                              <c-vosf_non-tabular-question question-wrapper={grandchildques} is-disabled={isDisabled}
+                                if:false={grandchildques.IsHidden} onresponses={handleSaveResponses}
+                                first-index={ques.number} second-index={index2} third-index={index3}>
+                              </c-vosf_non-tabular-question>
+                            </div>
+                          </template>
+                        </div>
+                      </template>
+                    </div>
+                    <template if:true={showError}>
+                      <div class="slds-m-left_x-large slds-text-color_error" key={ques.Question.Id}>
+                        {errorMsg}
+                      </div>
+                    </template>
+                  </template>
+                </div>
+              </lightning-layout-item>
+            </template>
+          </template>
+        </lightning-layout>
+      </div>
+    </template>
+    <template if:true={reviewFooter}>
+      <div class="footerDiv">
+        <div class="slds-float_right">
+          <template if:true={showButton}>
+            <button label="" class="qbuttonRev" onclick={handleupdateResponses}>
+              Edit Responses
+            </button>
+          </template>
+          <button class="qbutton" label="" onclick={handleSubmit}>
+            Save &amp; Submit
+          </button>
+        </div>
+      </div>
+    </template>
+  </div>
+</template>

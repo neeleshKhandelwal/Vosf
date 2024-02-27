@@ -1,0 +1,29 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-07-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-m-bottom_small" style={questionStyle}>
+        {indexNumber}{questionData.Question.Question_Label__c}
+    </div>
+    <div class="slds-m-around_medium">
+        <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+    </div>
+    <div class="slds-m-around_medium">
+        <lightning-layout>
+            <lightning-layout-item size='4' small-device-size='12' medium-device-size='6' large-device-size='4' padding='around-small'> 
+        <lightning-combobox
+                variant="label-hidden"
+                value={value}
+                options={options}
+                required={questionData.Question.isRequired__c}
+                onchange={handleChange} 
+                disabled={isDisabled}>
+        </lightning-combobox>
+        </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

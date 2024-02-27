@@ -1,0 +1,30 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-11-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+ 
+  <div class="headerDiv">
+Sales Force Survey  </div>
+<div class="contentDiv questionDiv">
+      <lightning-formatted-rich-text
+        value={welcomeMessage}
+      ></lightning-formatted-rich-text>
+    </div>
+ 
+  <div class="footerDiv">
+    <button
+      variant="brand"
+      class="slds-float_right button qbutton"
+      label=""
+      onclick={handleNext}
+      disabled={disableButton}
+    >
+      Get Started
+    </button>
+  </div>
+
+</template>

@@ -1,0 +1,53 @@
+.slds-input {
+    min-height: 1.5rem !important;
+    height: 1.7rem !important;
+}
+.slds-dropdown {
+    margin-top: 0 !important;
+}
+.slds-listbox_vertical .slds-listbox__option_has-meta .slds-media__figure {
+    margin-top: 1px;
+}
+.slds-listbox_vertical .slds-listbox__option_entity {
+    padding: 0.25rem;
+}
+.slds-listbox_vertical .slds-listbox__option_entity .slds-media__figure {
+    margin-right: 0.2rem;
+}
+.slds-listbox__option-icon .slds-current-color {
+    color: #0176d3;
+}
+.slds-listbox_selection-group {
+    padding-right: 0.75rem !important;
+    overflow: unset !important;
+    height: auto;
+}
+.slds-listbox_selection-group .slds-listbox-item {
+    padding: 0;
+}
+.slds-listbox_horizontal li + li,
+.slds-listbox--horizontal li + li {
+    padding-left: 0;
+}
+.slds-pill__icon_container {
+    margin-right: 0;
+}
+.slds-pill__label {
+    margin-left: 0.25rem;
+}
+.vk-scrollbar::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+.vk-scrollbar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #bfbfbf;
+    -webkit-box-shadow: inset 0 0 6px #bfbfbf;
+    border-radius: 0.25rem;
+}
+.vk-scrollbar::-webkit-scrollbar-thumb {
+    background: #95989d;
+    border-radius: 0.25rem;
+}
+.vk-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #313235;
+}

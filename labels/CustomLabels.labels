@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AdministratorProfileIds</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AdministratorProfileIds</shortDescription>
+        <value>00ed0000000TTXhAAO</value>
+    </labels>
+    <labels>
+        <fullName>BatchJobLimit</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BatchJobLimit</shortDescription>
+        <value>Batch Job Limit: Maximum 5 Batch jobs can run parallel in the system. Please wait for 10 to 15 minutes and then try again.</value>
+    </labels>
+    <labels>
+        <fullName>CPU_Limit_Exception</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CPU Limit Exception</shortDescription>
+        <value>The total selection (Resources x Weeks) should not exceed 300. Current selection can be seen beside the Weeks panel.</value>
+    </labels>
+    <labels>
+        <fullName>Case_Delete_Profiles</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Delete Profiles</shortDescription>
+        <value>00ed0000000TTXhAAO,00ed0000001APXrAAO</value>
+    </labels>
+    <labels>
+        <fullName>Insufficient_Privileges</fullName>
+        <categories>Information</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insufficient Privileges</shortDescription>
+        <value>Insufficient Privileges. Please contact your system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Org_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Org URL</shortDescription>
+        <value>https://krispykrunchychicken--partial.sandbox.lightning.force.com</value>
+    </labels>
+    <labels>
+        <fullName>PAMMergeDeleteBCCAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PAMMergeDeleteBCCAddress</shortDescription>
+        <value>ashwani.vatsa@zsassociates.com</value>
+    </labels>
+    <labels>
+        <fullName>PAM_Notification_of_Duplicate_Merge</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PAM Notification of Duplicate Merge Subject</shortDescription>
+        <value>One of your contacts was deleted or merged in opportunityZS 2.0</value>
+    </labels>
+    <labels>
+        <fullName>PAM_Owned_Campaign_Notification_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PAM_Owned_Campaign_Notification_Subject</shortDescription>
+        <value>[Action required] Please share opportunityZS Campaign &quot;&lt;CAMPAIGN_NAME/&gt;&quot; with your clients by &lt;END_DATE/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>PAM_Owned_HCCampaign_Notification_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PAM_Owned_HCCampaign_Notification_Subject</shortDescription>
+        <value>[Action required] Holiday Cards 2015 - opportunityZS Campaign</value>
+    </labels>
+    <labels>
+        <fullName>Question_Reference</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Question Reference</shortDescription>
+        <value>[Question_Reference]</value>
+    </labels>
+    <labels>
+        <fullName>Resource_weeks_exceed_400</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Resource_weeks_exceed_400</shortDescription>
+        <value>Resources x Weeks are over 300, Please select less number of resources or weeks to continue</value>
+    </labels>
+    <labels>
+        <fullName>Restricted_Job_Level</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Restricted Job Level</shortDescription>
+        <value>Administrator / Coordinator,Advanced Delivery,Advanced Support,Associate,Associate Consultant,Consultant,Delivery,Experienced,Foundational,Other,Specialist/Coordinator,Support</value>
+    </labels>
+    <labels>
+        <fullName>SPR_Failure_Email_Addresses</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SPR Failure Email Addresses</shortDescription>
+        <value>mandeep.deka@zsassociates.com</value>
+    </labels>
+    <labels>
+        <fullName>Survey_Controlling_Question_Sum</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Controlling Question Sum</shortDescription>
+        <value>[survey_controlling_question_sum]</value>
+    </labels>
+    <labels>
+        <fullName>Survey_Period</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Period</shortDescription>
+        <value>[survey_period]</value>
+    </labels>
+    <labels>
+        <fullName>Too_Many_I_Know_Them_Error_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Too Many I Know Them Error Message</shortDescription>
+        <value>Limit of &apos;I know them records&apos; for the Contact has been exceeded.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_BULKPRH_Estimated_Hours</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation_BULKPRH_Estimated_Hours</shortDescription>
+        <value>Estimated hours should be between (1-99)</value>
+    </labels>
+    <labels>
+        <fullName>Validation_BULKPRH_No_Resource_Selection</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation_BULKPRH_No_Resource_Selection</shortDescription>
+        <value>Please Select atleast one resource to assign</value>
+    </labels>
+    <labels>
+        <fullName>Validation_BULKPRH_No_Week_Selection</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation_BULKPRH_No_Week_Selection</shortDescription>
+        <value>Please select atleast one week to assign</value>
+    </labels>
+    <labels>
+        <fullName>Validation_BULKPRH_No_Weeks_Available</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation_BULKPRH_No_Weeks_Available</shortDescription>
+        <value>No more weeks are available in the system.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_BulkPRHDelete_Actual_Hours</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation BulkPRHDelete Actual Hours</shortDescription>
+        <value>Cannot delete a staffing plan period for a Team Member with actual hours.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_BulkPRHDelete_No_Records_Found</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation BulkPRHDelete No Records Found</shortDescription>
+        <value>No records found for deletion.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_BulkPRHDelete_Resource_Selection</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation BulkPRHDelete Resource Selection</shortDescription>
+        <value>Please select at least one resource to delete week(s).</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Closed_Project_Cannot_Be_Updated</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Closed Project Cannot Be Updated</shortDescription>
+        <value>You can not make changes to a Closed Project.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_CreatingStaffingPlanFromDiemension_Hours</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation CreatingStaffingPlanFromDiemension Hours</shortDescription>
+        <value>Hours: Please provide a valid value between 1 - 99.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_CreatingStaffingPlanFromDiemension_StartDate</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation CreatingStaffingPlanFromDiemension StartDate</shortDescription>
+        <value>Please select a Start Date greater or equal to Project Start Date ({0})</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Delete_Not_Allowed</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Delete Not Allowed</shortDescription>
+        <value>Insufficient Privileges. You cannot delete this record.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Duplicate_Resource_SPR_For_Linked_NonLinked</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Duplicate Resource SPR For Linked-NonLinked</shortDescription>
+        <value>The suggested resource is already staffed as a LINKED resource. Please withdraw the linked entry and staff again with future hours added.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Duplicate_Resource_SPR_For_NonLinked</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Duplicate Resource SPR For NonLinked</shortDescription>
+        <value>Suggested Person is already staffed on this project. You can restaff this person as a ‘Network Linked Only’ resource.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Maximum_UnAssigned_Resources_For_DTE</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Maximum UnAssigned Resources For DTE</shortDescription>
+        <value>Maximum number of unassigned resources limit is reached for this project. We are not able to display complete data.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Message_Duplicate_PRH</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Message Duplicate PRH</shortDescription>
+        <value>This record is modified by some other user after you opened it, Refresh page and then make your changes.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Message_Duplicate_PRH_BULK_RESOURCE_PLANNER</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Message Duplicate PRH BULK RESOURCE PLANNER</shortDescription>
+        <value>System encountered duplicate staffing details. Please refresh page and try again.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Message_Duplicate_Resource_in_SPR</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Message Duplicate Resource in SPR</shortDescription>
+        <value>Suggested Person is already staffed on this project. You can restaff &apos;Network Linked Only&apos; resources, who have crossed 180 days staffing limit. Please select a different resource.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_PRH_Duplicate</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation PRH Duplicate</shortDescription>
+        <value>Someone already modified the hours for this resource. Please refresh the page and re-edit!</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Project_Addition_To_A_Specific_Account</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Project Addition To A Specific Account</shortDescription>
+        <value>You cannot add the project to this particular Account. Please contact your System Administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_SPR_Dedicated_Team</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation SPR Dedicated Team</shortDescription>
+        <value>Please select an active Dedicated Team</value>
+    </labels>
+    <labels>
+        <fullName>Validation_SPR_Duplicate_Linked_Resource</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation SPR Duplicate Linked Resource</shortDescription>
+        <value>Suggested Employee is already linked to this project. Please select another resource.</value>
+    </labels>
+    <labels>
+        <fullName>Validation_Suggested_Employee_Must_Be_An_Active_Employee</fullName>
+        <categories>Validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation Suggested Employee Must Be An Active Employee</shortDescription>
+        <value>Suggested Person is not a valid active employee. Please contact with your System Administrator.</value>
+    </labels>
+</CustomLabels>

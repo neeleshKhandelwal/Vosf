@@ -1,0 +1,124 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-09-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div key={question.id}>
+        <p class="slds-heading slds-m-bottom_small"> <b>{firstIndex}.
+                {question.Question.Question_Label__c}</b></p>
+                <div class="slds-m-around_medium">
+                    <lightning-formatted-rich-text value={question.Question.Description__c}></lightning-formatted-rich-text>
+                </div>
+        <table key={question.id} class="slds-table slds-table_bordered cell-border"
+            style="width: 90%;margin: 2%; display: inline-table;">
+            <thead>
+               <tr class="slds-line-height_reset">
+                    <template for:each={question.Columns} for:item="column">
+                        <th if:false={column.hideColumn__c} key={column.id} class="slds-col slds-cell-wrap slds-table-heading ">
+                            <div class="slds-align_absolute-center">
+                                <b>{column.Label__c}</b>
+                            </div>
+                        </th>
+                    </template>
+
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={question.ChildQuestions} for:item="subQues" for:index="rowid">
+                    <tr key={subQues.Question} class="slds-hint-parent" if:false={subQues.IsHidden}>
+                        <td key={subQues.Question} class="slds-col slds-cell-wrap">
+                            {subQues.Question.Question_Label__c}
+                            <template if:true={subQues.Question.Is_Other__c}>
+                                        <lightning-input type='text' class="slds-size_4-of-12" style="display: inline-block;" data-row-id={rowid} onblur={handleBlurOthers} value={is_Other} data-column-index={index} data-question-id={subQues.Question.Id} data-column-id={firstcolumnId}></lightning-input>
+                            </template>
+                        </td>
+                       
+                        <template for:each={subQues.Choices} for:item="choiceWrap" for:index="index">
+                            <template if:false={choiceWrap.Choice.isFormula}>
+                                <template if:true={choiceWrap.IsText}>
+                                    <td key={subQues.Question} class="slds-col slds-cell-wrap">
+                                        <div  class="slds-align_absolute-center">
+                                            <lightning-input type="text" class="slds-input-text-box" maxlength="255"
+                                                required={choiceWrap.Choice.isRequired} message-when-value-missing={choiceWrap.Choice.valueMissingErrorMessage}
+                                                variant="label-hidden" onblur={handleBlur} value={choiceWrap.Value}
+                                                data-column-index={index} data-question-id={subQues.Question.Id} 
+                                          
+                                                data-choice-id={choiceWrap.Choice.Id} data-column-id={choiceWrap.Choice.Question_Column__c}
+                                                data-row-id={rowid} disabled={choiceWrap.Choice.isDisabled}>
+                                            </lightning-input>
+                                        </div>
+                                    </td>
+                                </template>
+                                <template if:true={choiceWrap.IsNumber}>
+                                    <td key={subQues.question} class="slds-col slds-cell-wrap">
+                                        <div  class="slds-align_absolute-center">
+                                       
+                                            <lightning-input type="number" required={choiceWrap.Choice.isRequired} step="0.01" name={subQues.Question.Id}
+                                                message-when-value-missing={choiceWrap.Choice.valueMissingErrorMessage} onchange={inputChangeHandler}
+                                                variant="label-hidden" onblur={handleBlur} value={choiceWrap.Value}
+                                                data-column-index={index} data-question-id={subQues.Question.Id}
+                                                min={choiceWrap.Choice.Min__c} message-when-range-underflow={choiceWrap.Choice.maxRangeErrorMessage}
+                                                max={choiceWrap.Choice.Max__c} message-when-range-overflow={choiceWrap.Choice.minRangeErrorMessage}
+                                                data-choice-id={choiceWrap.Choice.Id} data-column-id={choiceWrap.Choice.Question_Column__c}
+                                                data-id={choiceWrap.Choice.Id}
+                                                data-row-id={rowid} disabled={choiceWrap.Choice.isDisabled}>
+                                            </lightning-input>
+                                        </div>
+                                    </td>
+                                </template>
+                                <template if:true={choiceWrap.IsCheckbox}>
+                                    <td key={subQues.question} class="slds-col slds-cell-wrap">
+                                        <div style="width: 50%" class="slds-align_absolute-center">
+                                            <lightning-input type="checkbox" class="slds-input-text-box chkbox"
+                                                variant="label-hidden" onblur={handleBlur} checked={choiceWrap.Value}
+                                                data-column-index={index} data-question-id={subQues.Question.Id} onchange={checkboxHandler}
+                                                data-choice-id={choiceWrap.Choice.Id} data-column-id={choiceWrap.Choice.Question_Column__c}
+                                                data-row-id={rowid}  disabled={choiceWrap.Choice.isDisabled}></lightning-input>
+                                        </div>
+                                    </td>
+                                </template>
+                                <template if:true={choiceWrap.IsCombo}>
+                                    <td key={subQues.question} class="slds-col slds-cell-wrap">
+                                        <div  class="slds-align_absolute-center">
+                                            <c-vosf_combo-box-table onresponses={handleSaveResponses} value={choiceWrap.Value} 
+                                            choice-data={choiceWrap} first-index={firstIndex} second-index={secondIndex} 
+                                            is-disabled={isDisabled}  third-index={thirdIndex} is-primary={isPrimary}
+                                            selected-box-disable={choiceWrap.Choice.isDisabled}
+                                            cdata-column-index={index} cdata-question-id={subQues.Question.Id}
+                                            cdata-choice-id={choiceWrap.Choice.Id} cdata-column-id={choiceWrap.Choice.Question_Column__c}
+                                            cdata-id={choiceWrap.Choice.Id} is-required={choiceWrap.Choice.isRequired}
+                                            cdata-row-id={rowid}  data-row-id={rowid}
+                                            oncomboresponses={comboResponses}></c-vosf_combo-box-table>
+                                        </div>
+                                    </td>
+                                </template>
+                            </template>
+                            <!-- {choiceWrap.value} -->
+                            <template if:true={choiceWrap.Choice.isOutput}>
+                                <td key={subQues.question} class="slds-col slds-cell-wrap ">
+                                    <lightning-formatted-text   data-id={choiceWrap.Choice.Id} value={choiceWrap.Choice.Value__c}></lightning-formatted-text>
+                                </td>
+                            </template>
+                        </template>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        
+        <template for:each={numberTypeColums} for:item='item'>
+            <p if:false={item.percentOfPeriodicActivities__c} class="slds-m-left_large" key={item.Id}>Sum of {item.Label__c} : {item.total}</p>
+            <p if:true={item.percentOfPeriodicActivities__c} class="slds-m-left_large" key={item.Id}>{item.Label__c} : {item.total}</p>
+        </template>
+        <template if:true={isTotalValidationRequired}>
+            <!-- <P  > Total:{total}  </P>      -->
+           
+        </template>
+        <template if:true={showError}>
+            <div class="slds-m-left_x-large slds-text-color_error">{errorMsg}</div>
+        </template>
+        <br />
+    </div>
+</template>

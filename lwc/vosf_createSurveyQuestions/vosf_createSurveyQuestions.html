@@ -1,0 +1,76 @@
+<template>
+  <template if:true={showmodal}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-modal="true"
+      aria-labelledby="modal-heading-01"
+      class="slds-modal slds-fade-in-open slds-modal_medium"
+    >
+      <div class="slds-modal__container">
+        <lightning-icon
+          class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+          icon-name="utility:close"
+          onclick={closeModal}
+          alternative-text="Indicates close"
+        >
+        </lightning-icon>
+
+        <div class="slds-modal__header">
+          <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+            Create Survey with Questions
+          </h1>
+        </div>
+
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-1"
+        >
+          <template if:true={showError}>
+            <div
+              class="slds-notify slds-notify_alert slds-alert_error"
+              role="alert"
+            >
+              <h2>{errorMsg}</h2>
+            </div>
+          </template>
+          <template if:true={showmodalContent}>
+            <lightning-record-edit-form
+              onsuccess={handleSuccess}
+              object-api-name="Vosf_Survey__c"
+              columns="2"
+            >
+              <lightning-messages> </lightning-messages>
+              <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                  <lightning-input-field
+                    field-name="Name"
+                    required
+                  ></lightning-input-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2"></div>
+                <div class="slds-col slds-size_1-of-2">
+                  <lightning-input-field field-name="Status__c" disabled>
+                  </lightning-input-field>
+                </div>
+              </div>
+            </lightning-record-edit-form>
+          </template>
+        </div>
+        <div class="slds-modal__footer">
+          <button
+            onclick={closeModal}
+            class="slds-button slds-button_neutral"
+            aria-label="Cancel and close"
+          >
+            Cancel
+          </button>
+          <button class="slds-button slds-button_brand" disabled={showError}  onclick={handleChange}>
+            Save
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+  </template>
+</template>

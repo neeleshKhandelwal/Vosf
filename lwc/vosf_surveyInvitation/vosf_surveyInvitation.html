@@ -1,0 +1,105 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-02-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-modal-header label="Select Survey Participants"></lightning-modal-header>
+    <div class="slds-box">
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto" padding="around-small" size="4">
+                <template if:true={surveyoptions}>
+                    <p>Selected Survey : {surveyName}</p>
+                    <c-vosf_custom-lookup options={surveyoptions} default-value={surveyDefaultValue}
+                        lookuplabel='Select Survey' onchange={handleSurveyChange}></c-vosf_custom-lookup>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    <div class="slds-box">
+        <template if:true={filters}>
+            <lightning-layout horizontal-align="end">
+                <template for:each={filters} for:item='item'>
+                    <lightning-layout-item flexibility="auto" key={item} padding="around-small" size="4">
+                        <c-vosf_custom-lookup key={item} data-field={item.field} options={item.options}
+                            lookuplabel={item.label} onchange={handleLookupChange}></c-vosf_custom-lookup>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </template>
+        <div class=" slds-scrollable" style="height:20rem;">
+            <table>
+                <tr>
+                    <th><lightning-input type="Checkbox" onchange={allCheckboxChangeHandler}
+                            label='Name'></lightning-input>
+                    </th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Is Invited</th>
+                    <th>Status</th>
+                </tr>
+                <template for:each={usersdata} for:item='item'>
+                    <tr key={item.User.Name}>
+                        <td><lightning-input type="checkbox" disabled={item.IsInvited} data-userid={item.User.Id}
+                                label={item.User.Name}></lightning-input></td>
+                        <td>{item.User.Email}</td>
+                        <td><template if:true={item.User.UserRole}>{item.User.UserRole.Name}</template></td>
+                        <td>{item.IsInvited}</td>
+                        <td><template if:true={item.Invitation}>{item.Invitation.Status__c}</template></td>
+                    </tr>
+                </template>
+            </table>
+        </div>
+    </div>
+    <lightning-modal-footer>
+        <div class="slds-m-top_small slds-align_absolute-center ">
+            <lightning-button variant="brand" label="Cancel" class="slds-m-left_x-small slds-float_right"
+                onclick={handleClose}>
+            </lightning-button>
+            <lightning-button variant="brand" class="slds-m-left_x-small slds-float_right" label="Send Invitation"
+                onclick={showemailtemplate}>
+            </lightning-button>
+        </div>
+    </lightning-modal-footer>
+    <template if:true={showEmailTemplate}>
+       
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+              
+                <lightning-icon class="slds-modal__close slds-button_icon-inverse" icon-name="utility:close"
+                    size="medium" alternative-text="Indicates close" onclick={closeModal}>
+                </lightning-icon>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate ">Send Survey Invitation</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <template if:true={showsuccess}>
+                        <div class="slds-notify slds-align_absolute-center slds-theme_success" role="alert">Invitations sent.</div>
+                     </template>
+                     <template if:true={showError}>
+                     <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">{error.body.message}</div>
+                     </template>
+                     <template if:false={showsuccess}>
+                    <legend class="slds-form-element__legend slds-form-element__label">Email Body:</legend>
+                    <lightning-input-rich-text value={email} required="true" onchange={handleChange}>
+                    </lightning-input-rich-text>
+                    </template>
+                </div>
+                <div class="slds-modal__footer">
+                    <div class="slds-m-top_small slds-align_absolute-center">
+                        <lightning-button variant="brand" label="Cancel" class="slds-m-left_x-small"
+                            onclick={closeModal}>
+                        </lightning-button>
+                        <lightning-button variant="brand" class="slds-m-left_x-small" label="Send Invitation"
+                            onclick={handleSendInvitation}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+</template>

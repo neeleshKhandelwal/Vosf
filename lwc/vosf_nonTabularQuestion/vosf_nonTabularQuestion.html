@@ -1,0 +1,60 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-13-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template lwc:if={ques.IsTextArea}>
+        <c-vosf_lightning-textarea onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        is-disabled={isDisabled}  third-index={thirdIndex} is-primary={isPrimary}>
+        </c-vosf_lightning-textarea>
+    </template>
+    <template lwc:if={ques.IsText}>
+        <c-vosf_lightning-input onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        is-disabled={isDisabled}   third-index={thirdIndex} is-primary={isPrimary}>
+        </c-vosf_lightning-input>
+    </template>
+    <template lwc:if={ques.IsNumber}>
+        <c-vosf_lightning-input onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        is-disabled={isDisabled}   third-index={thirdIndex} is-primary={isPrimary}>    
+        </c-vosf_lightning-input>
+    </template>
+    <template lwc:if={ques.IsSlider}>
+        <c-vosf_lightning-slider onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        is-disabled={isDisabled}    third-index={thirdIndex} is-primary={isPrimary}>    
+        </c-vosf_lightning-slider>
+    </template>
+    <template lwc:if={ques.IsMultiselect}>
+        <c-vosf_multi-select is-disabled={isDisabled} onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        third-index={thirdIndex} is-primary={isPrimary}>    
+    </c-vosf_multi-select>
+
+    </template>
+    <template lwc:if={ques.IsCombobox}>
+        <c-vosf_lightning-combo-box onresponses={handleSaveResponses}  question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        is-disabled={isDisabled}  third-index={thirdIndex} is-primary={isPrimary}>    
+        </c-vosf_lightning-combo-box>
+    </template>
+    <template lwc:if={ques.IsRadio}>
+        <c-vosf_lightning-radio-button-group onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        is-disabled={isDisabled}   third-index={thirdIndex} is-primary={isPrimary}>    
+        </c-vosf_lightning-radio-button-group>
+    </template>
+    <template lwc:if={ques.IsCheckbox}>
+        <c-vosf_lightning-checkbox-group onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        is-disabled={isDisabled}  third-index={thirdIndex} is-primary={isPrimary}>    
+        </c-vosf_lightning-checkbox-group>
+    </template>
+    <template lwc:if={ques.IsRating}>
+        <c-vosf_rating onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        read-only={isDisabled}  third-index={thirdIndex} is-primary={isPrimary}>    
+        </c-vosf_rating>
+    </template>
+    <template lwc:if={ques.IsComment}>
+        <c-vosf_lightning-textarea onresponses={handleSaveResponses} question-data={ques} first-index={firstIndex} second-index={secondIndex} 
+        is-disabled={isDisabled}  third-index={thirdIndex} is-primary={isPrimary}>
+        </c-vosf_lightning-textarea>
+    </template>
+</template>

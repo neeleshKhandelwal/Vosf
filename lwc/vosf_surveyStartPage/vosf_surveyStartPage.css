@@ -1,0 +1,12 @@
+.container{
+    padding-bottom: 10%;
+    background: linear-gradient(180deg, rgba(243, 252, 254, 1) 0%, rgba(215, 236, 240, 1) 100%);
+}
+.contentDiv{
+    margin: 0 10%;
+    min-height: 200px;
+    position: relative;
+}
+.qheaderImg{
+    height: 100px;
+}

@@ -1,0 +1,64 @@
+<template>
+    <div class="slds-combobox_container" onmouseleave={hideOptions}>
+        <div class={comboBoxClass} aria-expanded={comboExpanded} aria-haspopup="listbox" role="combobox">
+            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                <input type="text" class="slds-input slds-combobox__input slds-combobox__input-value" id="combobox-id"
+                    autocomplete="off" aria-controls="listbox-id" role="textbox" placeholder={placeHolder}
+                    onkeyup={handleSearch} onclick={showOptions}></input>
+                <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+                    <lightning-icon icon-name="utility:search" size="x-small" class="slds-icon-text-default">
+                    </lightning-icon>
+                </span>
+            </div>
+            <div id="listbox-id" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid vk-scrollbar"
+                role="listbox" onmouseleave={hideOptions}>
+                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    <template for:each={optionsToDisplay} for:item="option" for:index="index">
+                        <li role="presentation" class="slds-listbox__item" key={option} data-index={index}
+                            onclick={handleSelection}>
+                            <div class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                role="option">
+                                <span class="slds-media__figure slds-listbox__option-icon">
+                                    <lightning-icon lwc:if={option.isSelected} icon-name="utility:check" size="xx-small"
+                                        class="slds-current-color"></lightning-icon>
+                                </span>
+                                <span if:true={option.hasIcon} class="slds-media__figure slds-listbox__option-icon">
+                                    <span class="slds-icon_container">
+                                        <lightning-icon icon-name={option.icon} size="x-small"></lightning-icon>
+                                    </span>
+                                </span>
+                                <span class="slds-media__body">
+                                    <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                        {option.label}
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                    </template>
+                    <li if:true={noResultsFound} class="slds-p-left_small">&#9785; No results found</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div if:true={showSelectedOptions} class="slds-listbox_selection-group">
+        <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:"
+            aria-orientation="horizontal">
+            <template for:each={selectedOptions} for:item="opt" for:index="index">
+                <li class="slds-listbox-item" role="presentation" key={opt.index}>
+                    <span class="slds-pill" role="option" tabindex="0" aria-selected="true">
+                        <span if:true={opt.hasIcon} class="slds-icon_container slds-pill__icon_container">
+                            <lightning-icon icon-name={opt.icon} size="x-small">
+                            </lightning-icon>
+                        </span>
+                        <span class="slds-pill__label" title={opt.value}>{opt.label}</span>
+                        <span class="slds-icon_container slds-pill__remove" title="Remove">
+                            <lightning-button-icon name={index} variant="bare" icon-name="utility:close"
+                                size="x-small" alternative-text="Remove selected option" onclick={removeSelectedOption}>
+                            </lightning-button-icon>
+                        </span>
+                    </span>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>
